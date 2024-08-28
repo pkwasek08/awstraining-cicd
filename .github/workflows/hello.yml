@@ -1,0 +1,23 @@
+name: Hello world
+run-name: Hello world ${{ inputs.name }} execution
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Provide your first name"
+        required: true
+        type: "string"
+      last_name:
+        description: "Provide your last name"
+        required: true
+        type: "string"
+
+jobs:
+  print_name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo name to console
+        run: |
+          echo "Hello ${{ inputs.name }}! Welcome to the first step"
+      
