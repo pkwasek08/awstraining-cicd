@@ -35,7 +35,7 @@ jobs:
           length=${#last_name}
 
           # Export output within the step
-          echo "length=$lenght" >> $GITHUB_OUTPUT
+          echo "length=$length" >> $GITHUB_OUTPUT
 
   print_last_name_length:
     runs-on: ubuntu-latest
@@ -43,4 +43,4 @@ jobs:
     steps:
       - name: "Echo length of the last name"
         run: |
-          echo "The length of your last name is: ${{ needs.print_last_name.outputs.last_name_lenth }}"
+          echo "The length of your last name is: ${{ needs.print_last_name.outputs.last_name_length }}"
