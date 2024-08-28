@@ -32,10 +32,10 @@ jobs:
         id: count_characters
         run: |
           last_name=${{ inputs.last_name }}
-          lenght= ${#last_name}
+          length=${#last_name}
 
           # Export output within the step
-          echo "length=$lenght" >> $GITHUB_OUTPUT"
+          echo "length=$lenght" >> $GITHUB_OUTPUT
 
   print_last_name_length:
     runs-on: ubuntu-latest
