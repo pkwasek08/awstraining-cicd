@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Call custom action
         id: custon_action
-        uses: pkwasek08/hello-world-action@v1 
+        uses: pkwasek08/hello-world-action@v2
         with:
           name: ${{ matrix.people }}
 
