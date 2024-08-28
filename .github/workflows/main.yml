@@ -1,0 +1,28 @@
+name: Greet people workflow
+run-name: Greeting everyone from the list
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  greet_everyone:
+    runs-on: ubuntu-latest
+    # Here we define our iteration
+    strategy:
+      matrix:
+        people:
+          - Piotr
+          - Seba
+          - Damian
+          - Andrzej
+
+    steps:
+      - name: Call custom action
+        id: custon_action
+        uses: pkwasek08/hello-world-action@v1 
+        with:
+          name: ${{ matrix.people }}
+
+      - name: Display length pf the name
+        run: |
+          echo "The length of the name is: ${{ steps.custom_action.outputs.name_length }}
