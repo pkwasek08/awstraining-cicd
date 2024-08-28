@@ -20,6 +20,7 @@ jobs:
       - name: Echo name to console
         run: |
           echo "Hello ${{ inputs.name }}! Welcome to the first step"
+        shell: bash
   print_last_name:
     outputs:
       last_name_length: ${{ steps.count_characters.outputs.length }}
@@ -28,8 +29,11 @@ jobs:
       - name: Echo last name to console
         run: |
           echo "Your last name is ${{ inputs.last_name }}"
+        shell: bash
+
       - name: Count character in the last name
         id: count_characters
+        shell: bash
         run: |
           last_name=${{ inputs.last_name }}
           length=${#last_name}
@@ -42,5 +46,6 @@ jobs:
     needs: print_last_name
     steps:
       - name: "Echo length of the last name"
+        shell: bash
         run: |
           echo "The length of your last name is: ${{ needs.print_last_name.outputs.last_name_length }}"
