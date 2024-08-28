@@ -25,4 +25,4 @@ jobs:
 
       - name: Display length pf the name
         run: |
-          echo "The length of the name is: ${{ steps.custom_action.outputs.name_length }}
+          echo "The length of the name is: ${{ steps.custom_action.outputs.name_length }}"
